@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个性化博客页</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    <link rel="stylesheet" href="./blog.css">
+
+</head>
+
+<body>
+    <div class="blog-bg-fixed"></div>
+    <div class="blog-container">
+        <div class="blog-header">
+            <div class="blog-author">
+                <p>WELCOME</p>
+                <p class="blog-author-name">BY.SummerDora</p>
+            </div>
+            <div class="blog-header-tab flex-row">
+                <div>home</div>
+                <div>title</div>
+                <div>desc</div>
+                <div>content</div>
+            </div>
+        </div>
+        <div class="blog-content">
+            <p class="blog-content-title">前端数据库--WebSQL和IndexedDB</p>
+            <div class="blog-content-text">
+                随着浏览器的功能不断增强，越来越多的网站开始考虑，将大量数据储存在客户端，这样可以减少从服务器获取数据，直接从本地获取数据。现有的浏览器数据储存方案，都不适合储存大量数据：Cookie
+                的大小不超过4KB，且每次请求都会发送回服务器；LocalStorage 在 2.5MB 到 10MB 之间（各家浏览器不同），而且不提供搜索功能，不能建立自定义的索引。所以，需要一种新的解决方案，这就是
+                IndexedDB 诞生的背景。
+            </div>
+            <p class="blog-content-tips">子级标题</p>
+            <div class="blog-content-text">
+                IndexedDB是浏览器提供的本地数据库， 允许储存大量数据，提供查找接口，还能建立索引。这些都是 LocalStorage 所不具备的。就数据库类型而言，IndexedDB
+                不属于关系型数据库（不支持SQL 查询语句），更接近 NoSQL 数据库。
+            </div>
+            <p class="blog-content-tips">IndexedDB 具有以下特点：</p>
+            <div class="blog-content-text">
+                （1）键值对储存。 IndexedDB 内部采用对象仓库（object store）存放数据。所有类型的数据都可以直接存入，包括 JavaScript
+                对象。对象仓库中，数据以"键值对"的形式保存，每一个数据记录都有对应的主键，主键是独一无二的，不能有重复，否则会抛出一个错误。<br />
+
+                （2）异步。 IndexedDB 操作时不会锁死浏览器，用户依然可以进行其他操作，这与 LocalStorage 形成对比，后者的操作是同步的。异步设计是为了防止大量数据的读写，拖慢网页的表现。<br />
+
+                （3）支持事务。 IndexedDB
+                支持事务（transaction），这意味着一系列操作步骤之中，只要有一步失败，整个事务就都取消，数据库回滚到事务发生之前的状态，不存在只改写一部分数据的情况。<br />
+
+                （4）同源限制 IndexedDB 受到同源限制，每一个数据库对应创建它的域名。网页只能访问自身域名下的数据库，而不能访问跨域的数据库。<br />
+
+                （5）储存空间大 IndexedDB 的储存空间比 LocalStorage 大得多，一般来说不少于 250MB，甚至没有上限。<br />
+
+                （6）支持二进制储存。 IndexedDB 不仅可以储存字符串，还可以储存二进制数据（ArrayBuffer 对象和 Blob 对象）。<br />
+            </div>
+            <p class="blog-content-tips">子级标题</p>
+            <div class="blog-content-text">
+                我们对数据库的一般概念是后端才会跟数据库打交道，进行一些业务性的增删改查。而这里的数据库也不同于真正意义上的数据库。<br />
+                废话少说，先出招吧：<br />
+                主要方法：<br />
+                <span class="keywords">openDatabase：</span>这个方法使用现有的数据库或者新建的数据库创建一个数据库对象。<br />
+                <span class="keywords">transaction：</span>这个方法让我们能够控制一个事务，以及基于这种情况执行提交或者回滚。<br />
+                <span class="keywords"> executeSql：</span>这个方法用于执行实际的 SQL 查询。<br />
+                openDatabase() 方法对应的五个参数说明：<br />
+                数据库名称<br />
+                版本号<br />
+                描述文本<br />
+                数据库大小<br />
+                创建回调<br />
+                transaction执行数据库操作，操作内容就是正常的数据库的增删改查。<br />
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+
+    <meting-js class="xxxx" server="netease" type="song" autoplay='true' mini='true' fixed='true' preload='metadata' id="1805346503">
+    </meting-js>
+    <!--
+        server(平台)	require	音乐平台：netease，tencent，kugou，xiami，baidu
+        type（类型）	require	song，playlist，album，search，artist
+        auto（支持类种 类）	options	音乐链接，支持：netease，tencent，xiami
+    -->
+
+    <script src="./drag.js"></script>
+
+</body>
+
+</html>
